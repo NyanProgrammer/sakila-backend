@@ -46,7 +46,7 @@ public class FilmActorService {
    @PUT
     @Path("{id}")
     @Consumes({"application/xml", "application/json"})
-    public void edit(@PathParam("id") Integer filmId, Integer actorId , FilmActor entity) {
+    public void edit(@PathParam("filmId") Integer filmId, @PathParam("actorId") Integer actorId , FilmActor entity) {
     	entity.setActorId(actorId.intValue());
     	entity.setFilmId(filmId.intValue());
         filmActorFacadeEJB.edit(entity);
