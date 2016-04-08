@@ -42,7 +42,7 @@ public class FilmActorService {
     public void create(FilmActor entity) {
         filmActorFacadeEJB.create(entity);
     }
-
+/*
    @PUT
     @Path("{id}")
     @Consumes({"application/xml", "application/json"})
@@ -59,6 +59,6 @@ public class FilmActorService {
     	filmActorFacadeEJB.remove(filmActor);
     }
     
-	
+	*/
 
 }

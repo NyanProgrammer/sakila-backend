@@ -10,12 +10,16 @@ import java.util.List;
  * The persistent class for the actor database table.
  * 
  */
+
+
 @Entity
 @Table(name="actor")
 @NamedQuery(name="Actor.findAll", query="SELECT a FROM Actor a")
 public class Actor implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="actorId", orphanRemoval=true, targetEntity=FilmActor.class)
+	
 	@Id
 	@Column(name="actor_id", unique=true, nullable=false)
 	private int actorId;
@@ -29,6 +33,7 @@ public class Actor implements Serializable {
 	@Column(name="last_update", nullable=false)
 	private Timestamp lastUpdate;
 
+	
 	public Actor() {
 	}
 

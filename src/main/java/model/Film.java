@@ -20,6 +20,7 @@ import java.util.List;
 public class Film implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="filmId", orphanRemoval=true,targetEntity=FilmActor.class)
 	@Id
 	@Column(name="film_id", unique=true, nullable=false)
 	private int filmId;

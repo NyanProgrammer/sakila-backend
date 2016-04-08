@@ -18,13 +18,17 @@ import java.util.List;
 public class FilmActor implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name="actor_id", unique=true, nullable=false)
-	private int actorId;
+	@ManyToOne
 	
 	@Id
-	@Column(name="film_id", unique=true, nullable=false)
-	private int filmId;
+	@JoinColumn(name = "actor_id")
+//	@Column(name="actor_id", unique=true, nullable=false)
+	private Actor actor;
+	
+	@Id
+	@JoinColumn(name = "film_id")
+//	@Column(name="film_id", unique=true, nullable=false)
+	private Film film;
 	
 	@Column(name="last_update", nullable=false)
 	private Timestamp lastUpdate;
@@ -33,20 +37,20 @@ public class FilmActor implements Serializable {
 	public FilmActor() {
 	}
 
-	public int getActorId() {
-		return this.actorId;
+	public Actor getActorId() {
+		return actor;
 	}
 
-	public void setActorId(int actorId) {
-		this.actorId = actorId;
+	public void setActorId(Actor actor) {
+		this.actor = actor;
 	}
 	
-	public int getFilm() {
-		return this.filmId;
+	public Film getFilm() {
+		return film;
 	}
 
-	public void setFilmId(int filmId) {
-		this.filmId = filmId;
+	public void setFilmId(Film film) {
+		this.film = film;
 	}
 	public void setLastUpdate(Timestamp lastUpdate) {
 		this.lastUpdate = lastUpdate;
